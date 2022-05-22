@@ -1,0 +1,13 @@
+version: '1.0'
+services:
+  callsign-ticket-service-mysql:
+    restart: unless-stopped
+    env_file: ./.env
+    environment:
+      - MYSQL_DATABASE=$MYSQLDB_DATABASE
+      - MYSQLDB_ROOT_USER=$MYSQLDB_ROOT_USER
+    ports:
+      - $MYSQLDB_LOCAL_PORT:$MYSQLDB_DOCKER_PORT
+    build:
+      context: ./
+      dockerfile: ./Dockerfile

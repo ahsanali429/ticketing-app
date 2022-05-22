@@ -1,0 +1,38 @@
+spring:
+  profiles: dev
+
+datasource:
+  database:
+    endpoint: jdbc:mysql://127.0.0.1:3306
+    schema: ticketing-test-db
+    username : root
+    password :
+jwt:
+  secret:
+    secret-key: callsign-ticketing-system-secret-dev
+---
+spring:
+  profiles: prod
+datasource:
+  database:
+    endpoint: jdbc:mysql://127.0.0.1:3306
+    schema: ticketing-test-db
+    username : root
+    password :
+jwt:
+  secret:
+    secret-key: callsign-ticketing-system-secret-prod
+
+---
+spring:
+  profiles: test
+datasource:
+  database:
+    endpoint: jdbc:h2:mem:testDB
+    schema: ticketing-test-db
+    username :
+    password :
+jwt:
+  secret:
+    secret-key: callsign-ticketing-system-secret-test
+

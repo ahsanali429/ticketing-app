@@ -1,0 +1,9 @@
+version: '1.0'
+services:
+  callsign-ticket-service-app:
+    env_file: ./.env
+    ports:
+      - $SPRING_LOCAL_PORT:$SPRING_DOCKER_PORT
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
